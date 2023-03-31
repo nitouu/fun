@@ -20,22 +20,22 @@ fenetre = turtle.Turtle()
 # [B](Adjacent)' (Cm)
 #              ' '
 #              '   '
-#              '     '
+#              '     '   <- What we are searching for.
 #              '       '
 #              '_        '
 #              '-|---------'[C](Hypotenuse)(Cm)
 #   (Opposite)[A](Cm)
 
 #AB and AC are INTEGER and not float ! (Should be fixed)
-AB=int(input())
-AC=int(input())
+AB=int(input()) #AB=float(input())
+AC=int(input()) #AC=float(input())
 
-#AB = Adjacent
-#AC = Opposite
-#BC = Hypotenuse
+#(AB) = Adjacent
+#(AC) = Opposite
+#(BC) = Hypotenuse
 
-#Beta = CAB's angle
-#Alpha = BAC's angle
+#Beta = CAB°
+#Alpha = BAC°
 
 def multiplication(a,b):
     s=0
@@ -45,26 +45,29 @@ def multiplication(a,b):
         return -multiplication(-a,b)
     if b<0:
         return -multiplication(a,-b)
-    for i in range(a): #<- Don't support float 
+    for i in range(a): #<- Don't support float (Should be fixed)
         s = s+b
     return s
 
 def square(n):
     s=1
-    s=s*multiplication(n,n) #Square will not work, if it an float values.
+    s=s*multiplication(n,n) #Square will not work, if it an float values. (Should be fixed)
     return s
 
 def square_root(x):
     x=x**(1/2)
     return x
 
+def Angle():
+    pass #We will use Trigonometry...i guess
+
 def Pythagore(AB,AC,CAB,BAC):
 
     BC=0.0 #Distance AB+AC
 
-    BC = square(AB)+square(AC)+BC
-
-    BC = square_root(BC)
+    BC = square(AB)+square(AC)+BC #BC²=...
+    #the square became square root by passing on the other sides.
+    BC = square_root(BC) #BC=...
 
     print("BC : ",BC,"cm.")
 
