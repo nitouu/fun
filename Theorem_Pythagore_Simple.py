@@ -1,3 +1,5 @@
+#To make the biggest Geometry Explanations under Python Language. (Just with Pythagore Theorems. and no more)
+
 import turtle
 
 
@@ -24,7 +26,7 @@ fenetre = turtle.Turtle()
 #              '-|---------'[C](Hypotenuse)(Cm)
 #   (Opposite)[A](Cm)
 
-
+#AB and AC are INTEGER and not float ! (Should be fixed)
 AB=int(input())
 AC=int(input())
 
@@ -43,13 +45,13 @@ def multiplication(a,b):
         return -multiplication(-a,b)
     if b<0:
         return -multiplication(a,-b)
-    for i in range(a):
+    for i in range(a): #<- Don't support float 
         s = s+b
     return s
 
 def square(n):
     s=1
-    s=s*multiplication(n,n)
+    s=s*multiplication(n,n) #Square will not work, if it an float values.
     return s
 
 def square_root(x):
