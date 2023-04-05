@@ -28,8 +28,8 @@ fenetre = turtle.Turtle()
 #              '-|---------'[C](Hypotenuse)(Cm)
 #   (Opposite)[A](Cm)
 
-AC=int(input())
-AB=int(input())
+AC=int(input("AC : "))
+AB=int(input("AB : "))
 
 #AB = Adjacent
 #AC = Opposite
