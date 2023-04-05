@@ -1,6 +1,8 @@
 #To make the biggest Geometry Explanations under Python Language. (Just with Pythagore Theorems. and no more)
 
+from math import *
 import turtle
+
 
 
 fenetre = turtle.Turtle()
@@ -20,22 +22,21 @@ fenetre = turtle.Turtle()
 # [B](Adjacent)' (Cm)
 #              ' '
 #              '   '
-#              '     '   <- What we are searching for.
+#              '     '
 #              '       '
 #              '_        '
 #              '-|---------'[C](Hypotenuse)(Cm)
 #   (Opposite)[A](Cm)
 
-#AB and AC are INTEGER and not float ! (Should be fixed)
-AB=int(input()) #AB=float(input())
-AC=int(input()) #AC=float(input())
+AC=int(input())
+AB=int(input())
 
-#(AB) = Adjacent
-#(AC) = Opposite
-#(BC) = Hypotenuse
+#AB = Adjacent
+#AC = Opposite
+#BC = Hypotenuse
 
-#Beta = CAB°
-#Alpha = BAC°
+#Beta = CAB's angle
+#Alpha = BAC's angle
 
 def multiplication(a,b):
     s=0
@@ -45,46 +46,68 @@ def multiplication(a,b):
         return -multiplication(-a,b)
     if b<0:
         return -multiplication(a,-b)
-    for i in range(a): #<- Don't support float (Should be fixed)
+    for i in range(a):
         s = s+b
     return s
 
 def square(n):
     s=1
-    s=s*multiplication(n,n) #Square will not work, if it an float values. (Should be fixed)
+    s=s*multiplication(n,n)
     return s
 
 def square_root(x):
     x=x**(1/2)
     return x
 
-def Angle():
-    pass #We will use Trigonometry...i guess
+"""def Angle(x):
+    x= (x*180)/pi
+    return x"""
+
+def sin(AC,BC):
+    x= AC/BC#C=AH
+    x=(x*180)/pi
+    return x
+def cos(AB,BC):
+    x= AB/BC#S=OH
+    x=(x*180)/pi
+    return x
+def tan(AC,AB):
+    x= AC/AB#T=OA
+    x=(x*180)/pi
+    return x
 
 def Pythagore(AB,AC,CAB,BAC):
 
     BC=0.0 #Distance AB+AC
 
-    BC = square(AB)+square(AC)+BC #BC²=...
-    #the square became square root by passing on the other sides.
-    BC = square_root(BC) #BC=...
+    BC = square(AB)+square(AC)+BC
+
+    BC = square_root(BC)
+
+    CAB = sin(AC,BC)
+    BAC= cos(AB,BC)
 
     print("BC : ",BC,"cm.")
 
     print("Angle(CAB):", CAB,"°", "Angle(BAC):", BAC,"°")
 
     #Will draw the right triangle.
+    fenetre.write("A")
 
-    #fenetre.forward(AC)
+    fenetre.forward(AC)
+    fenetre.write("C")
 
-    #fenetre.left(CAB)
-    #fenetre.forward(BC)
+    fenetre.left(CAB)
+    fenetre.forward(AB)
+    fenetre.write("B")
 
-    #fenetre.left(BAC)
-    #fenetre.forward(AB)
+    fenetre.left(BAC)
+    fenetre.forward(BC)
 
-    #turtle.done()
+    turtle.done()
 
 
 
-print(Pythagore(AB,AC,90,90))
+print(Pythagore(AB,AC,0.5,1))
+
+
