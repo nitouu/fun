@@ -67,10 +67,12 @@ def sin(AC,BC):
     x= AC/BC#C=AH
     x=(x*180)/pi
     return x
+
 def cos(AB,BC):
     x= AB/BC#S=OH
     x=(x*180)/pi
     return x
+
 def tan(AC,AB):
     x= AC/AB#T=OA
     x=(x*180)/pi
